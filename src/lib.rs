@@ -1,8 +1,10 @@
 use rand::{thread_rng, Rng};
 use std::fmt::{Display, Formatter};
+use serde::{Deserialize, Serialize};
+
 mod error;
 pub use error::{Error, Result};
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Matrix {
     pub rows: usize,
     pub cols: usize,
