@@ -2,6 +2,7 @@ use rand::{thread_rng, Rng};
 use std::fmt::{Display, Formatter};
 mod error;
 pub use error::{Error, Result};
+#[derive(Debug, Clone)]
 pub struct Matrix {
     pub rows: usize,
     pub cols: usize,
@@ -84,11 +85,11 @@ impl Matrix {
 }
 impl From<Vec<Vec<f64>>> for Matrix {
     fn from(value: Vec<Vec<f64>>) -> Self {
-       Matrix {
-           rows: value.len(),
-           cols: value[0].len(),
-           data: value
-       } 
+        Matrix {
+            rows: value.len(),
+            cols: value[0].len(),
+            data: value,
+        }
     }
 }
 
